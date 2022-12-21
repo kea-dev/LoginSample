@@ -23,7 +23,7 @@ Be careful not to store large and unnecessary object graphs to overburden the se
   
  ## Logical architecture
   The app is build as a three layered architecture that follows this illustration https://martinfowler.com/bliki/PresentationDomainDataLayering.html:  
-  ![](img/all_more.png)
+![image](https://user-images.githubusercontent.com/155492/208907420-065f4820-303b-49a8-a91c-46de475ca118.png)
   
   The application has:
   
@@ -33,13 +33,13 @@ Be careful not to store large and unnecessary object graphs to overburden the se
   
   <p>The package naming looks like this (where service and domain model classes are in the same domain package):</p>
   
-  ![](img/Udklip.PNG)
+  ![image](https://user-images.githubusercontent.com/155492/208907578-b8382dd1-92bd-43ab-bfe4-412ae2231fb3.png)
  
  <p> A service layer defines the application set of available operations from the perspective of client interface (presentation layyer). A MVC @Controller has a service class as its first contact point in the backend part of the application. 
    <br>The service layer encapsulates the application's business logic, it controls transactions and coordinates responses when an alternative use case scenario is encountered. It can be illustrated like this: </p>
  https://martinfowler.com/eaaCatalog/serviceLayer.html
  
-![](img/ServiceLayerSketch.gif)
+![image](https://user-images.githubusercontent.com/155492/208907640-9addddef-bb9b-4651-9e8c-8b6bc860b02a.png)
 
 ## Exception handling
 
