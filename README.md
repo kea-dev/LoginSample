@@ -1,4 +1,4 @@
-# 2.semLoginSample
+# LoginSample
 
 ## application.properties: database info
 Rename application.properties.example filename to application.properties to make program work.
