@@ -1,3 +1,4 @@
+CREATE DATABASE useradmin;
 CREATE TABLE IF NOT EXISTS `useradmin`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(90) NOT NULL,
