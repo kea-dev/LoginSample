@@ -1,5 +1,5 @@
-CREATE DATABASE useradmin;
-CREATE TABLE IF NOT EXISTS `useradmin`.`users` (
+# CREATE DATABASE useradmin IF NOT EXISTS;
+CREATE TABLE IF NOT EXISTS `useradmin`.`Users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(90) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
