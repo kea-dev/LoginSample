@@ -6,7 +6,8 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.6</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
+        <!-- lookup parent from repository -->
     </parent>
     <groupId>login</groupId>
     <artifactId>demo</artifactId>
@@ -16,6 +17,20 @@
     <properties>
         <java.version>11</java.version>
     </properties>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <app.properties.path>src/main/resources/application.properties</app.properties.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <app.properties.path>src/main/resources/application.prod.properties</app.properties.path>
+            </properties>
+        </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,7 +51,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -45,5 +59,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
