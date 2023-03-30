@@ -8,7 +8,9 @@ mvn clean package
 -  `package` will build the `.jar` file (in `target` directory) and run any tests
 - If no profile is defined it will build with default application properties: `src/manin/resources/application.properties`
 
-<details><summary>Building for different environments: `dev` and `prod`</summary>
+<details><summary>Building for different environments: <code>dev</code> and <code>prod</code></summary>
+
+---
 The application settings may vary dependent on what database you are using. You can apply different properties to different profiles by adding them to the `pom.xml` file:
 
 ```xml
@@ -27,16 +29,15 @@ The application settings may vary dependent on what database you are using. You 
         </profile>
     </profiles>
 ```
-The two files cna then define different database connection settings.
-
-To use the profile you can then specify them to maven like this:
+The two files can then define different database connection settings. To use a specific profile you can then specify it to maven like this:
 
 ```shell
 mvn clean package -P dev
 mvn clean package -P prod
 
 ```
-
+    
+---
 </details>
 
 ## To run the application
@@ -49,6 +50,7 @@ This will start the application and host it on port 8080
 
 <details><summary>How to access your running app</summary>
 
+---
 ### Local host
 If you started it up on your local machine simply browse to http://localhost:8080/
 
@@ -63,9 +65,12 @@ If you miss it you can can hit the _**Ports**_ tab in the lower panel. The port 
 
 Hit the globe icon.
 
+<img width="444" alt="image" src="https://user-images.githubusercontent.com/155492/228737414-e72bb20e-6ba2-4408-917c-4beceb384edb.png">
+
 ### Deployed
 If you - or your GitHub Actions - have successfully deployed it to a cloud host - you simply go there - wherever that is.
 
+---
 </details>
 
 ## How to connect a database
@@ -81,9 +86,9 @@ To simplify the development process we'll skip installing dependencies and inste
 
 The following process requires that you have access to the `docker` CLI. If you are in a GitHub Codespace it's already available - if you are on your own PC (Mac or Windows) simply [install and start Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
-
 <details><summary>Use a MySql database for development hosted on your localhost:3306 - running in a Docker container</summary>
 
+---  
 To create the database you simply give the parameters you want to work with when you start it.  The command is one line, but using the back slash character `\` I've broken it up for readability:
 
 ```shell
@@ -131,6 +136,8 @@ You should change the values of the parameters to suit your context and applicat
     -p 3307:3306 \
     -d mysql:8.0
   ```
+
+---
 </details>
 
 ## Working with your database
@@ -142,6 +149,8 @@ You can manipulate your database in different ways:
 - Through a database management tool 
 
 <details><summary>Using a console</summary>
+    
+---
 The Docker container you created has the `mysql` CLI installed, you can utilize that feature from a inside a running container through the `docker exec` command:
 
 ```shell
@@ -168,10 +177,13 @@ mysql> SELECT * from useradmin.Users
 +----+---------------------+----------+----------+
 2 rows in set (0.00 sec)
 ```
+    
+---
 </details>
 
 <details><summary>Executing scripts against your database</summary>
-
+    
+---
 One approach is to use the `source` command from the `mysql` prompt.
 
 The container has mapped the root of the git repository in as it's `--workdir``
@@ -189,9 +201,12 @@ docker exec  -i mysql1 mysql -uloginsample -ploginsample  < src/main/resources/u
 
 ```
 
+---
 </details>
 
 <details><summary>Using a database management tool</summary>
+    
+---
 In a tool like MySql Workbench all you need to set up a connection is:
 
 - **username**
@@ -201,8 +216,8 @@ In a tool like MySql Workbench all you need to set up a connection is:
 - **port**
 
 
+---
 </details>
 
 
-<img width="444" alt="image" src="https://user-images.githubusercontent.com/155492/228737414-e72bb20e-6ba2-4408-917c-4beceb384edb.png">
 
